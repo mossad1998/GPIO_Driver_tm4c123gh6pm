@@ -1,0 +1,229 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.1.245/W32 for ARM                  07/Aug/2021  19:32:17
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =
+#        G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Exe\GPIO_Driver.out
+#    Map file     =
+#        G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\List\GPIO_Driver.map
+#    Command line =
+#        -f C:\Users\Owner\AppData\Local\Temp\EWEA0.tmp
+#        (G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Obj\GPIO_Driver.o
+#        G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Obj\main.o
+#        --no_out_extension -o
+#        G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Exe\GPIO_Driver.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\List\GPIO_Driver.map
+#        --config G:\IAR\arm\config\linker\TexasInstruments\TM4C123GH6.icf
+#        --semihosting --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
+                                   - 0x40    0x40
+
+"P1":                                       0x528
+  .text              ro code         0x40   0x2c0  GPIO_Driver.o [1]
+  .text              ro code        0x300    0x12  strcmp.o [4]
+  .text              ro code        0x312    0x2e  copy_init3.o [4]
+  Initializer bytes  const          0x340    0x90  <for P2-1>
+  .text              ro code        0x3d0    0x7e  main.o [1]
+  .text              ro code        0x44e     0x2  vector_table_M.o [4]
+  .text              ro code        0x450    0x28  data_init.o [4]
+  .text              ro code        0x478    0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x49c    0x14  - Linker created -
+  .text              ro code        0x4b0    0x1e  cmain.o [4]
+  .text              ro code        0x4ce     0x4  low_level_init.o [2]
+  .text              ro code        0x4d2     0x4  exit.o [2]
+  .text              ro code        0x4d8     0xa  cexit.o [4]
+  .text              ro code        0x4e4    0x14  exit.o [5]
+  .rodata            const          0x4f8     0xc  GPIO_Driver.o [1]
+  .rodata            const          0x504     0xc  GPIO_Driver.o [1]
+  .rodata            const          0x510     0xc  main.o [1]
+  .text              ro code        0x51c     0xc  cstartup_M.o [4]
+  .rodata            const          0x528     0x8  GPIO_Driver.o [1]
+  .rodata            const          0x530     0x8  GPIO_Driver.o [1]
+  .rodata            const          0x538     0x8  GPIO_Driver.o [1]
+  .rodata            const          0x540     0x8  GPIO_Driver.o [1]
+  .rodata            const          0x548     0x8  GPIO_Driver.o [1]
+  .rodata            const          0x550     0x8  main.o [1]
+  .rodata            const          0x558     0x8  main.o [1]
+  .rodata            const          0x560     0x8  main.o [1]
+  .rodata            const          0x568     0x0  copy_init3.o [4]
+                                  - 0x568   0x528
+
+"P2", part 1 of 2:                           0x90
+  P2-1                        0x2000'0000    0x90  <Init block>
+    .data            inited   0x2000'0000    0x18  GPIO_Driver.o [1]
+    .data            inited   0x2000'0018    0x18  GPIO_Driver.o [1]
+    .data            inited   0x2000'0030    0x18  GPIO_Driver.o [1]
+    .data            inited   0x2000'0048    0x18  GPIO_Driver.o [1]
+    .data            inited   0x2000'0060    0x18  GPIO_Driver.o [1]
+    .data            inited   0x2000'0078    0x18  GPIO_Driver.o [1]
+                            - 0x2000'0090    0x90
+
+"P2", part 2 of 2:                         0x1000
+  CSTACK                      0x2000'0090  0x1000  <Block>
+    CSTACK           uninit   0x2000'0090  0x1000  <Block tail>
+                            - 0x2000'1090  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x568     0x3'ffff  0x3'fa98
+  0x2000'1090  0x2000'7fff    0x6f70
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x90:
+                0x340  0x90
+    1 destination range, total size 0x90:
+          0x2000'0000  0x90
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Obj: [1]
+    GPIO_Driver.o         704      208      144
+    main.o                126       36
+    -------------------------------------------
+    Total:                830      244      144
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [3]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           46
+    cstartup_M.o           12
+    data_init.o            40
+    strcmp.o               18
+    vector_table_M.o       66
+    -------------------------------------------
+    Total:                222
+
+shb_l.a: [5]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    4        2
+    Linker created                  20    4'096
+-----------------------------------------------
+    Grand Total:        1'118      266    4'240
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base         0x49c         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x4b0         --   Gb  - Linker created -
+?main                         0x4b1        Code  Gb  cmain.o [4]
+AFSEL_R                 0x2000'0048  0x18  Data  Gb  GPIO_Driver.o [1]
+AMSEL_R                 0x2000'0018  0x18  Data  Gb  GPIO_Driver.o [1]
+CLK_Enable                     0x41  0x24  Code  Gb  GPIO_Driver.o [1]
+CLK_PORTS               0x2000'0000  0x18  Data  Gb  GPIO_Driver.o [1]
+CSTACK$$Base            0x2000'0090         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1090         --   Gb  - Linker created -
+DATA_R                  0x2000'0078  0x18  Data  Gb  GPIO_Driver.o [1]
+DEN_R                   0x2000'0030  0x18  Data  Gb  GPIO_Driver.o [1]
+DIR_R                   0x2000'0060  0x18  Data  Gb  GPIO_Driver.o [1]
+GPIO_PORT_UNLOCK               0x65  0x3a  Code  Gb  GPIO_Driver.o [1]
+PIN_ANALOG_DIGITAL             0x9f  0xc6  Code  Gb  GPIO_Driver.o [1]
+PIN_FUNCTION_SELECT           0x165  0x76  Code  Gb  GPIO_Driver.o [1]
+PIN_INPUT_OUTPUT              0x1db  0x76  Code  Gb  GPIO_Driver.o [1]
+PIN_WRITE_DIGITAL             0x251  0x68  Code  Gb  GPIO_Driver.o [1]
+Region$$Table$$Base           0x49c         --   Gb  - Linker created -
+Region$$Table$$Limit          0x4b0         --   Gb  - Linker created -
+__cmain                       0x4b1        Code  Gb  cmain.o [4]
+__exit                        0x4e5  0x14  Code  Gb  exit.o [5]
+__iar_copy_init3              0x313  0x2e  Code  Gb  copy_init3.o [4]
+__iar_data_init3              0x451  0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x479        Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x51d        Code  Gb  cstartup_M.o [4]
+__low_level_init              0x4cf   0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0        Data  Gb  vector_table_M.o [4]
+_call_main                    0x4bd        Code  Gb  cmain.o [4]
+_exit                         0x4d9        Code  Gb  cexit.o [4]
+_main                         0x4cb        Code  Gb  cmain.o [4]
+delayMs                       0x435  0x1a  Code  Gb  main.o [1]
+exit                          0x4d3   0x4  Code  Gb  exit.o [2]
+main                          0x3d1  0x4e  Code  Gb  main.o [1]
+strcmp                        0x301        Code  Gb  strcmp.o [4]
+
+
+[1] = G:\Github\GPIO_Driver_tm4c123gh6pm\Examples\Led_Toggle\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  1'118 bytes of readonly  code memory
+    266 bytes of readonly  data memory
+  4'240 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
