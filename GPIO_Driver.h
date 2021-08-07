@@ -30,3 +30,5 @@ extern void PIN_WRITE_DIGITAL(char port_name,int pin,char data[3]);             
 extern bool PIN_READ_DIGITAL(char port_name,int pin);                            //To Read Data
 
 #endif
+
+
