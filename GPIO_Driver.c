@@ -123,6 +123,8 @@ void PIN_CONFIGURE(char port_name,int pin,char type[10])
     *PCTL_R[port_name-65]|= 1UL << 4*pin;
   else if(strcmp(type,"ADC")==0)
     *PCTL_R[port_name-65]&= ~(1UL << 4*pin);
+  else if(strcmp(type,"PWM")==0)
+    *PCTL_R[port_name-65]|= 0x4 << 4*pin;
 }
 
 
